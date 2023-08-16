@@ -1,0 +1,33 @@
+In this task, we were asked to design a calculator that can perform the basic mathematical operations:
+
+puts "Enter the first number:"
+set num1 [gets stdin]
+puts "Enter the second number:"
+set num2 [gets stdin]
+puts "Enter the operation (+, -, *, /):"
+set op [gets stdin]
+switch -- $op {
+    "+" {
+        set result [expr {$num1 + $num2}]
+    }
+    "-" {
+        set result [expr {$num1 - $num2}]
+    }
+    "*" {
+        set result [expr {$num1 * $num2}]
+    }
+    "/" {
+        if {$num2 == 0} {
+            puts "Division by zero error."
+            exit
+        }
+        set result [expr {$num1 / $num2}]
+    }
+    default {
+        puts "Invalid operation."
+        exit
+    }
+}
+puts "Result: $result"
+
+
