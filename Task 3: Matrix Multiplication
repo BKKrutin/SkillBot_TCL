@@ -1,0 +1,37 @@
+In this task, we were asked to multiply two matrices:
+
+puts "Enter the number of rows for matrix 1:"
+set m [gets stdin]
+puts "Enter the number of columns for matrix 1:"
+set n [gets stdin]
+puts "Enter the elements of matrix 1:"
+for {set i 0} {$i < $m} {incr i} {
+    for {set j 0} {$j < $n} {incr j} {
+        set a($i,$j) [gets stdin]
+    }
+}
+puts "Enter the number of rows for matrix 2:"
+set p [gets stdin]
+puts "Enter the number of columns for matrix 2:"
+set q [gets stdin]
+puts "Enter the elements of matrix 2:"
+for {set i 0} {$i < $p} {incr i} {
+    for {set j 0} {$j < $q} {incr j} {
+        set b($i,$j) [gets stdin]
+    }
+}
+if {$n != $p} {
+    puts "Matrices cannot be multiplied."
+    exit
+}
+puts "Resultant matrix after multiplication:"
+for {set i 0} {$i < $m} {incr i} {
+    for {set j 0} {$j < $q} {incr j} {
+        set c($i,$j) 0
+        for {set k 0} {$k < $n} {incr k} {
+            set c($i,$j) [expr {$c($i,$j) + ($a($i,$k) * $b($k,$j))}]
+        }
+        puts -nonewline "$c($i,$j) "
+    }
+    puts ""
+}
