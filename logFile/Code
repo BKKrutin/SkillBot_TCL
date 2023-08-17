@@ -2,7 +2,7 @@
 set wfp [open "extract.log" w]
 set rfp [open "innovus.log" r]
 set fileData [read $rfp]
-puts $wfp "Error present: "
+puts $wfp "ERRORS : "
 foreach line [split $fileData "\n"] {
 	set string1 $line
 	regexp {\*\*ERROR: \(([^)]+)\)} $string1 err str
@@ -10,7 +10,7 @@ foreach line [split $fileData "\n"] {
 		puts $wfp "$str"
 	}
 }	
-puts $wfp "Warning present:"
+puts $wfp "WARNINGS :"
 foreach line [split $fileData "\n"] {
 	set string1 $line
 	regexp {\*\*WARN: \(([^)]+)\)} $string1 err str
@@ -18,7 +18,7 @@ foreach line [split $fileData "\n"] {
 		puts $wfp "$str"
 	}
 }
-puts $wfp "PATHS :"
+puts $wfp "LOCATIONS :"
 foreach line [split $fileData "\n"] {
 	set string1 $line
 	regexp {\(File (/[^\,]+)\)} $string1 err str
