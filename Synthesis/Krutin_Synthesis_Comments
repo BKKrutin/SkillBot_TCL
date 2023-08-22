@@ -1,7 +1,7 @@
 #### Template Script for RTL->Gate-Level Flow (generated from GENUS 19.10-p001_1) 
 
 source setup.tcl                
-#It reads through the setup.tcl script
+#It reads through the setup.tcl script  
 set synthDir "synthesis"        
 #Sets synthesis to synthDir 
 if {![file exists $synthDir]} {
